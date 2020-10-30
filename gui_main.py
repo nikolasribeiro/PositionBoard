@@ -319,9 +319,8 @@ class MainGUI(QMainWindow):
         if self.next_semiFinals_3.text() != "" and self.next_semiFinals_4.text() != "":
             self.next_semifinalsBTN_3.setEnabled(True)
             self.next_semifinalsBTN_4.setEnabled(True)
-        
-        #self.next_semifinalsBTN_3.clicked.connect(lambda: self.semi_finals(3))
-        #self.next_semifinalsBTN_4.clicked.connect(lambda: self.semi_finals(4))
+
+
 
     def semi_finals(self, code):
         # ==== LEFT SIDE ====
@@ -351,7 +350,12 @@ class MainGUI(QMainWindow):
                 self.next_semifinalsBTN_3.setEnabled(False)
                 self.next_semifinalsBTN_4.setEnabled(False)
 
+        if self.final_part.text() != "" and self.final_part2.text() != "":
+            self.btn_final.setEnabled(True)
+            self.btn_final2.setEnabled(True)
+
     def final(self, code):
+
         if code == 1:
             self.show_winner(self.final_part.text())
             self.final_part2.setStyleSheet("background-color: #FE2E2E")
@@ -361,7 +365,7 @@ class MainGUI(QMainWindow):
             self.show_winner(self.final_part2.text())
             self.final_part.setStyleSheet("background-color: #FE2E2E")
             self.btn_final.setEnabled(False)
-    
+
     def show_winner(self, name_of_winner):
         msg = QMessageBox()
         msg.setWindowTitle("WE HAVE A WINNER!!")
