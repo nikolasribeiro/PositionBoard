@@ -7,6 +7,10 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt, QTimer
+import Data.data_code as db
+
 
 class Ui_Window_Participans(object):
     def setupUi(self, MainWindow):
@@ -135,18 +139,51 @@ class Ui_Window_Participans(object):
         self.participant_8.setObjectName("participant_8")
         self.gridLayout.addWidget(self.participant_8, 19, 0, 1, 1)
         self.verticalLayout.addWidget(self.frame)
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout.addWidget(self.pushButton)
+        self.btn_add = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_add.setObjectName("btn_add")
+        self.verticalLayout.addWidget(self.btn_add)
         self.horizontalLayout.addLayout(self.verticalLayout)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        """ ============ FUNCIONALIDAD DE LA VENTANA ============ """
+        #Call the function to create the database
+        db.participant_data()
+
+
+        self.btn_add.clicked.connect(self.add_participant)
+
+    def add_participant(self):
+        db.add_name(self.participant1.text())
+        db.add_name(self.participant_2.text())
+        db.add_name(self.participant_3.text())
+        db.add_name(self.participant_4.text())
+        db.add_name(self.participant_5.text())
+        db.add_name(self.participant_6.text())
+        db.add_name(self.participant_7.text())
+        db.add_name(self.participant_8.text())
+        db.add_name(self.participant_9.text())
+        db.add_name(self.participant_10.text())
+        db.add_name(self.participant_11.text())
+        db.add_name(self.participant_22.text())
+        db.add_name(self.participant_23.text())
+        db.add_name(self.participant_24.text())
+        db.add_name(self.participant_25.text())
+        db.add_name(self.participant_26.text())
+
+        msg = QMessageBox()
+        msg.setWindowTitle("Players Registered Successfully")
+        msg.setText("Players Added to queue successfully")
+        msg.setIcon(QMessageBox.Information)
+        msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec_()
+
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Add Participant"))
         self.label.setText(_translate("MainWindow", "Participant 1"))
         self.label_9.setText(_translate("MainWindow", "Participant 9"))
         self.label_2.setText(_translate("MainWindow", "Participant 2"))
@@ -163,7 +200,7 @@ class Ui_Window_Participans(object):
         self.label_26.setText(_translate("MainWindow", "Participant 15"))
         self.label_8.setText(_translate("MainWindow", "Participant 8"))
         self.label_27.setText(_translate("MainWindow", "Participant 16"))
-        self.pushButton.setText(_translate("MainWindow", "Load Participans"))
+        self.btn_add.setText(_translate("MainWindow", "Load Participans"))
 
 
 if __name__ == "__main__":

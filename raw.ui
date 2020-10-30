@@ -11,14 +11,29 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Position Board!</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="0">
      <layout class="QHBoxLayout" name="horizontal">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
       <item>
        <layout class="QVBoxLayout" name="octavo1">
+        <property name="topMargin">
+         <number>0</number>
+        </property>
         <item>
          <widget class="QFrame" name="frame">
           <property name="frameShape">
@@ -29,7 +44,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QLineEdit" name="part_1"/>
+            <widget class="QLineEdit" name="part_1">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_1">
@@ -51,7 +70,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
-            <widget class="QLineEdit" name="part_2"/>
+            <widget class="QLineEdit" name="part_2">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_2">
@@ -80,7 +103,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
-            <widget class="QLineEdit" name="part_3"/>
+            <widget class="QLineEdit" name="part_3">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_3">
@@ -102,7 +129,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
-            <widget class="QLineEdit" name="part_4"/>
+            <widget class="QLineEdit" name="part_4">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_4">
@@ -131,7 +162,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
-            <widget class="QLineEdit" name="part_5"/>
+            <widget class="QLineEdit" name="part_5">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_5">
@@ -153,7 +188,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_6">
            <item>
-            <widget class="QLineEdit" name="part_6"/>
+            <widget class="QLineEdit" name="part_6">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_6">
@@ -182,7 +221,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
-            <widget class="QLineEdit" name="part_7"/>
+            <widget class="QLineEdit" name="part_7">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_7">
@@ -204,7 +247,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_8">
            <item>
-            <widget class="QLineEdit" name="part_8"/>
+            <widget class="QLineEdit" name="part_8">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_8">
@@ -230,7 +277,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_17">
            <item>
-            <widget class="QLineEdit" name="next_stage1"/>
+            <widget class="QLineEdit" name="next_stage1">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_stageBTN_1">
@@ -252,7 +303,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_18">
            <item>
-            <widget class="QLineEdit" name="next_stage1_2"/>
+            <widget class="QLineEdit" name="next_stage1_2">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_stageBTN_2">
@@ -281,7 +336,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_19">
            <item>
-            <widget class="QLineEdit" name="next_stage1_3"/>
+            <widget class="QLineEdit" name="next_stage1_3">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_stageBTN_3">
@@ -303,7 +362,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_20">
            <item>
-            <widget class="QLineEdit" name="next_stage1_4"/>
+            <widget class="QLineEdit" name="next_stage1_4">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_stageBTN_4">
@@ -329,7 +392,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_25">
            <item>
-            <widget class="QLineEdit" name="next_semiFinals"/>
+            <widget class="QLineEdit" name="next_semiFinals">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_semifinalsBTN">
@@ -342,6 +409,13 @@
          </widget>
         </item>
         <item>
+         <widget class="Line" name="line_9">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QFrame" name="frame_26">
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
@@ -351,7 +425,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_26">
            <item>
-            <widget class="QLineEdit" name="next_semiFinals_2"/>
+            <widget class="QLineEdit" name="next_semiFinals_2">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_semifinalsBTN_2">
@@ -384,10 +462,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="final_part"/>
+            <widget class="QLineEdit" name="final_part">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="final_part2"/>
+            <widget class="QLineEdit" name="final_part2">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="btn_final2">
@@ -413,7 +499,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_27">
            <item>
-            <widget class="QLineEdit" name="next_semiFinals_3"/>
+            <widget class="QLineEdit" name="next_semiFinals_3">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_semifinalsBTN_3">
@@ -426,6 +516,13 @@
          </widget>
         </item>
         <item>
+         <widget class="Line" name="line_10">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QFrame" name="frame_28">
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
@@ -435,7 +532,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_28">
            <item>
-            <widget class="QLineEdit" name="next_semiFinals_4"/>
+            <widget class="QLineEdit" name="next_semiFinals_4">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_semifinalsBTN_4">
@@ -461,7 +562,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_21">
            <item>
-            <widget class="QLineEdit" name="next_stage1_5"/>
+            <widget class="QLineEdit" name="next_stage1_5">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_stageBTN_5">
@@ -483,7 +588,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_22">
            <item>
-            <widget class="QLineEdit" name="next_stage1_6"/>
+            <widget class="QLineEdit" name="next_stage1_6">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_stageBTN_6">
@@ -512,7 +621,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_23">
            <item>
-            <widget class="QLineEdit" name="next_stage1_7"/>
+            <widget class="QLineEdit" name="next_stage1_7">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_stageBTN_7">
@@ -534,7 +647,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_24">
            <item>
-            <widget class="QLineEdit" name="next_stage1_8"/>
+            <widget class="QLineEdit" name="next_stage1_8">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="next_stageBTN_8">
@@ -560,7 +677,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_9">
            <item>
-            <widget class="QLineEdit" name="part_9"/>
+            <widget class="QLineEdit" name="part_9">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_9">
@@ -582,7 +703,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_10">
            <item>
-            <widget class="QLineEdit" name="part_10"/>
+            <widget class="QLineEdit" name="part_10">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_10">
@@ -611,7 +736,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_11">
            <item>
-            <widget class="QLineEdit" name="part_11"/>
+            <widget class="QLineEdit" name="part_11">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_11">
@@ -633,7 +762,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_12">
            <item>
-            <widget class="QLineEdit" name="part_12"/>
+            <widget class="QLineEdit" name="part_12">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_12">
@@ -662,7 +795,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_13">
            <item>
-            <widget class="QLineEdit" name="part_13"/>
+            <widget class="QLineEdit" name="part_13">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_13">
@@ -684,7 +821,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_14">
            <item>
-            <widget class="QLineEdit" name="part_14"/>
+            <widget class="QLineEdit" name="part_14">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_14">
@@ -713,7 +854,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_15">
            <item>
-            <widget class="QLineEdit" name="part_15"/>
+            <widget class="QLineEdit" name="part_15">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_15">
@@ -735,7 +880,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_16">
            <item>
-            <widget class="QLineEdit" name="part_16"/>
+            <widget class="QLineEdit" name="part_16">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="win_16">
