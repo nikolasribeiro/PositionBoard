@@ -3,7 +3,7 @@
 This software is for the tournament of Ping Pong in Holberton School (you can use it in another tournament where 16 participans are in)
 
 ## Files
-|   **Content of this repo**    |
+   **Content of this repo**    
 | **File** | **Decription**|
 |----------|---------------|
 | Data | Folder that contains the code of a simple database |
