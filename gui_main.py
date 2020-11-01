@@ -56,15 +56,15 @@ class MainGUI(QMainWindow):
 
 
         #select the next stage
-        self.win_1.clicked.connect(lambda: self.next_stage(1))
-        self.win_2.clicked.connect(lambda: self.next_stage(2))
-        self.win_3.clicked.connect(lambda: self.next_stage(3))
-        self.win_4.clicked.connect(lambda: self.next_stage(4))
-        self.win_5.clicked.connect(lambda: self.next_stage(5))
-        self.win_6.clicked.connect(lambda: self.next_stage(6))
-        self.win_7.clicked.connect(lambda: self.next_stage(7))
-        self.win_8.clicked.connect(lambda: self.next_stage(8))
-        self.win_9.clicked.connect(lambda: self.next_stage(9))
+        self.win_1.clicked.connect( lambda: self.next_stage(1))
+        self.win_2.clicked.connect( lambda: self.next_stage(2))
+        self.win_3.clicked.connect( lambda: self.next_stage(3))
+        self.win_4.clicked.connect( lambda: self.next_stage(4))
+        self.win_5.clicked.connect( lambda: self.next_stage(5))
+        self.win_6.clicked.connect( lambda: self.next_stage(6))
+        self.win_7.clicked.connect( lambda: self.next_stage(7))
+        self.win_8.clicked.connect( lambda: self.next_stage(8))
+        self.win_9.clicked.connect( lambda: self.next_stage(9))
         self.win_10.clicked.connect(lambda: self.next_stage(10))
         self.win_11.clicked.connect(lambda: self.next_stage(11))
         self.win_12.clicked.connect(lambda: self.next_stage(12))
@@ -84,10 +84,10 @@ class MainGUI(QMainWindow):
         self.next_stageBTN_8.clicked.connect(lambda: self.quarter_final(8))
 
         #Select Semi Finals
-        self.next_semifinalsBTN.clicked.connect(lambda  : self.semi_finals(1))
-        self.next_semifinalsBTN_2.clicked.connect(lambda: self.semi_finals(2))
-        self.next_semifinalsBTN_3.clicked.connect(lambda: self.semi_finals(3))
-        self.next_semifinalsBTN_4.clicked.connect(lambda: self.semi_finals(4))
+        self.next_semifinalsBTN.clicked.connect(    lambda: self.semi_finals(1))
+        self.next_semifinalsBTN_2.clicked.connect(  lambda: self.semi_finals(2))
+        self.next_semifinalsBTN_3.clicked.connect(  lambda: self.semi_finals(3))
+        self.next_semifinalsBTN_4.clicked.connect(  lambda: self.semi_finals(4))
         
         #Select WINNER!
         self.btn_final.clicked.connect(lambda  : self.final(1))
@@ -139,55 +139,62 @@ class MainGUI(QMainWindow):
 
     def next_stage(self, identifier):
 
-
         # ==== LEFT SIDE ====
         if identifier in [1,2,3,4,5,6,7,8]:
 
             if identifier == 1:
                 self.next_stage1.setText(self.part_1.text())
                 self.part_2.setStyleSheet("background-color: #FE2E2E")
+                self.part_1.setStyleSheet("background-color: #28B463")
                 self.win_2.setEnabled(False)
                 self.win_1.setEnabled(False)
             
             elif identifier == 2:
                 self.next_stage1.setText(self.part_2.text())
                 self.part_1.setStyleSheet("background-color: #FE2E2E")
+                self.part_2.setStyleSheet("background-color: #28B463")
                 self.win_1.setEnabled(False)
                 self.win_2.setEnabled(False)
 
             elif identifier == 3:
                 self.next_stage1_2.setText(self.part_3.text())
                 self.part_4.setStyleSheet("background-color: #FE2E2E")
+                self.part_3.setStyleSheet("background-color: #28B463")
                 self.win_4.setEnabled(False)
                 self.win_3.setEnabled(False)
 
             elif identifier == 4:
                 self.next_stage1_2.setText(self.part_4.text())
                 self.part_3.setStyleSheet("background-color: #FE2E2E")
+                self.part_4.setStyleSheet("background-color: #28B463")
                 self.win_3.setEnabled(False)
                 self.win_4.setEnabled(False)
 
             elif identifier == 5:
                 self.next_stage1_3.setText(self.part_5.text())
                 self.part_6.setStyleSheet("background-color: #FE2E2E")
+                self.part_5.setStyleSheet("background-color: #28B463")
                 self.win_6.setEnabled(False)
                 self.win_5.setEnabled(False)
 
             elif identifier == 6:
                 self.next_stage1_3.setText(self.part_6.text())
                 self.part_5.setStyleSheet("background-color: #FE2E2E")
+                self.part_6.setStyleSheet("background-color: #28B463")
                 self.win_5.setEnabled(False)
                 self.win_6.setEnabled(False)
             
             elif identifier == 7:
                 self.next_stage1_4.setText(self.part_7.text())
                 self.part_8.setStyleSheet("background-color: #FE2E2E")
+                self.part_7.setStyleSheet("background-color: #28B463")
                 self.win_8.setEnabled(False)
                 self.win_7.setEnabled(False)
 
             elif identifier == 8:
                 self.next_stage1_4.setText(self.part_8.text())
                 self.part_7.setStyleSheet("background-color: #FE2E2E")
+                self.part_8.setStyleSheet("background-color: #28B463")
                 self.win_7.setEnabled(False)
                 self.win_8.setEnabled(False)
 
@@ -196,64 +203,66 @@ class MainGUI(QMainWindow):
             if identifier == 9:
                 self.next_stage1_5.setText(self.part_9.text())
                 self.part_10.setStyleSheet("background-color: #FE2E2E")
+                self.part_9.setStyleSheet("background-color: #28B463")
                 self.win_10.setEnabled(False)
                 self.win_9.setEnabled(False)
 
             elif identifier == 10:
                 self.next_stage1_5.setText(self.part_10.text())
                 self.part_9.setStyleSheet("background-color: #FE2E2E")
+                self.part_10.setStyleSheet("background-color: #28B463")
                 self.win_9.setEnabled(False)
                 self.win_10.setEnabled(False)
 
             elif identifier == 11:
                 self.next_stage1_6.setText(self.part_11.text())
                 self.part_12.setStyleSheet("background-color: #FE2E2E")
+                self.part_11.setStyleSheet("background-color: #28B463")
                 self.win_12.setEnabled(False)
                 self.win_11.setEnabled(False)
 
             elif identifier == 12:
                 self.next_stage1_6.setText(self.part_12.text())
                 self.part_11.setStyleSheet("background-color: #FE2E2E")
+                self.part_12.setStyleSheet("background-color: #28B463")
                 self.win_11.setEnabled(False)
                 self.win_12.setEnabled(False)
 
             elif identifier == 13:
                 self.next_stage1_7.setText(self.part_13.text())
                 self.part_14.setStyleSheet("background-color: #FE2E2E")
+                self.part_13.setStyleSheet("background-color: #28B463")
                 self.win_14.setEnabled(False)
                 self.win_13.setEnabled(False)
 
             elif identifier == 14:
                 self.next_stage1_7.setText(self.part_14.text())
                 self.part_13.setStyleSheet("background-color: #FE2E2E")
+                self.part_14.setStyleSheet("background-color: #28B463")
                 self.win_13.setEnabled(False)
                 self.win_14.setEnabled(False)
 
             elif identifier == 15:
                 self.next_stage1_8.setText(self.part_15.text())
                 self.part_16.setStyleSheet("background-color: #FE2E2E")
+                self.part_15.setStyleSheet("background-color: #28B463")
                 self.win_16.setEnabled(False)
                 self.win_15.setEnabled(False)
 
             elif identifier == 16:
                 self.next_stage1_8.setText(self.part_16.text())
                 self.part_15.setStyleSheet("background-color: #FE2E2E")
+                self.part_16.setStyleSheet("background-color: #28B463")
                 self.win_15.setEnabled(False)
                 self.win_16.setEnabled(False)
 
-        if self.next_stage1.text() != "" and self.next_stage1_2.text() != "":
+        if self.next_stage1.text() != "" and self.next_stage1_2.text() != "" and self.next_stage1_3.text() != "" and self.next_stage1_4.text() != "" and self.next_stage1_5.text() != "" and self.next_stage1_6.text() != "" and self.next_stage1_7.text() != "" and self.next_stage1_8.text() != "":
             self.next_stageBTN_1.setEnabled(True)
             self.next_stageBTN_2.setEnabled(True)
-
-        if self.next_stage1_3.text() != "" and self.next_stage1_4.text() != "":
             self.next_stageBTN_3.setEnabled(True)
             self.next_stageBTN_4.setEnabled(True)
-
-        if self.next_stage1_5.text() != "" and self.next_stage1_6.text() != "":
             self.next_stageBTN_5.setEnabled(True)
             self.next_stageBTN_6.setEnabled(True)
-
-        if self.next_stage1_7.text() != "" and self.next_stage1_8.text() != "":
             self.next_stageBTN_7.setEnabled(True)
             self.next_stageBTN_8.setEnabled(True)
 
@@ -264,24 +273,28 @@ class MainGUI(QMainWindow):
             if code == 1:
                 self.next_semiFinals.setText(self.next_stage1.text())
                 self.next_stage1_2.setStyleSheet("background-color: #FE2E2E")
+                self.next_stage1.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_2.setEnabled(False)
                 self.next_stageBTN_1.setEnabled(False)
 
             elif code == 2:
                 self.next_semiFinals.setText(self.next_stage1_2.text())
                 self.next_stage1.setStyleSheet("background-color: #FE2E2E")
+                self.next_stage1_2.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_1.setEnabled(False)
                 self.next_stageBTN_2.setEnabled(False)
 
             elif code == 3:
                 self.next_semiFinals_2.setText(self.next_stage1_3.text())
                 self.next_stage1_4.setStyleSheet("background-color: #FE2E2E")
+                self.next_stage1_3.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_4.setEnabled(False)
                 self.next_stageBTN_3.setEnabled(False)
 
             elif code == 4:
                 self.next_semiFinals_2.setText(self.next_stage1_4.text())
                 self.next_stage1_3.setStyleSheet("background-color: #FE2E2E")
+                self.next_stage1_4.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_3.setEnabled(False)
                 self.next_stageBTN_4.setEnabled(False)
         
@@ -290,37 +303,37 @@ class MainGUI(QMainWindow):
             if code == 5:
                 self.next_semiFinals_3.setText(self.next_stage1_5.text())
                 self.next_stage1_6.setStyleSheet("background-color: #FE2E2E")
+                self.next_stage1_5.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_6.setEnabled(False)
                 self.next_stageBTN_5.setEnabled(False)
 
             elif code == 6:
                 self.next_semiFinals_3.setText(self.next_stage1_6.text())
                 self.next_stage1_5.setStyleSheet("background-color: #FE2E2E")
+                self.next_stage1_6.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_5.setEnabled(False)
                 self.next_stageBTN_6.setEnabled(False)
 
             elif code == 7:
                 self.next_semiFinals_4.setText(self.next_stage1_7.text())
                 self.next_stage1_6.setStyleSheet("background-color: #FE2E2E")
+                self.next_stage1_7.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_6.setEnabled(False)
                 self.next_stageBTN_7.setEnabled(False)
             
             elif code == 8:
                 self.next_semiFinals_4.setText(self.next_stage1_8.text())
                 self.next_stage1_7.setStyleSheet("background-color: #FE2E2E")
+                self.next_stage1_8.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_7.setEnabled(False)
-                self.next_stageBTN_6.setEnabled(False)
+                self.next_stageBTN_8.setEnabled(False)
 
 
-        if self.next_semiFinals.text() != "" and self.next_semiFinals_2.text() != "":
+        if self.next_semiFinals.text() != "" and self.next_semiFinals_2.text() != "" and self.next_semiFinals_3.text() != "" and self.next_semiFinals_4.text() != "":
             self.next_semifinalsBTN.setEnabled(True)
             self.next_semifinalsBTN_2.setEnabled(True)
-        
-        if self.next_semiFinals_3.text() != "" and self.next_semiFinals_4.text() != "":
             self.next_semifinalsBTN_3.setEnabled(True)
             self.next_semifinalsBTN_4.setEnabled(True)
-
-
 
     def semi_finals(self, code):
         # ==== LEFT SIDE ====
@@ -328,12 +341,14 @@ class MainGUI(QMainWindow):
             if code == 1:
                 self.final_part.setText(self.next_semiFinals.text())
                 self.next_semiFinals_2.setStyleSheet("background-color: #FE2E2E")
+                self.next_semiFinals.setStyleSheet("background-color: #28B463")
                 self.next_semifinalsBTN_2.setEnabled(False)
                 self.next_semifinalsBTN.setEnabled(False)
 
             if code == 2:
                 self.final_part.setText(self.next_semiFinals_2.text())
                 self.next_semiFinals.setStyleSheet("background-color: #FE2E2E")
+                self.next_semiFinals_2.setStyleSheet("background-color: #28B463")
                 self.next_semifinalsBTN.setEnabled(False)
                 self.next_semifinalsBTN_2.setEnabled(False)
         
@@ -341,12 +356,14 @@ class MainGUI(QMainWindow):
             if code == 3:
                 self.final_part2.setText(self.next_semiFinals_3.text())
                 self.next_semiFinals_4.setStyleSheet("background-color: #FE2E2E")
+                self.next_semiFinals_3.setStyleSheet("background-color: #28B463")
                 self.next_semifinalsBTN_4.setEnabled(False)
                 self.next_semifinalsBTN_3.setEnabled(False)
             
             if code == 4:
                 self.final_part2.setText(self.next_semiFinals_4.text())
                 self.next_semiFinals_3.setStyleSheet("background-color: #FE2E2E")
+                self.next_semiFinals_4.setStyleSheet("background-color: #28B463")
                 self.next_semifinalsBTN_3.setEnabled(False)
                 self.next_semifinalsBTN_4.setEnabled(False)
 
@@ -359,11 +376,13 @@ class MainGUI(QMainWindow):
         if code == 1:
             self.show_winner(self.final_part.text())
             self.final_part2.setStyleSheet("background-color: #FE2E2E")
+            self.final_part.setStyleSheet("background-color: #28B463")
             self.btn_final2.setEnabled(False)
         
         elif code == 2:
             self.show_winner(self.final_part2.text())
             self.final_part.setStyleSheet("background-color: #FE2E2E")
+            self.final_part2.setStyleSheet("background-color: #28B463")
             self.btn_final.setEnabled(False)
 
     def show_winner(self, name_of_winner):
