@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>508</width>
-    <height>579</height>
+    <width>536</width>
+    <height>592</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -244,6 +244,31 @@
          </item>
         </layout>
        </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QRadioButton" name="rb_ping_pong">
+          <property name="text">
+           <string>Ping Pong</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rb_uno">
+          <property name="text">
+           <string>Uno</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rb_pool">
+          <property name="text">
+           <string>Pool</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <widget class="QPushButton" name="btn_add">

@@ -7,7 +7,9 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from GUI.gui_participant import Ui_Window_Participans
 import threading
-import Data.data_code as db
+import Data.ping_pong_db as db
+import Data.pool_db as pool_db
+import Data.uno_db as uno_db
 
 class MainGUI(QMainWindow):
     
@@ -18,6 +20,9 @@ class MainGUI(QMainWindow):
         #Call modal to add participans
         self.add_part.triggered.connect(self.show_participans)
         self.refresh_button.clicked.connect(self.get_participans)
+
+        #Selecting the game to display
+        self.game_selector.activated[str].connect(self.select_game)
 
         #Disable all the buttons to avoid future problems
         self.win_1.setEnabled(False)
@@ -93,8 +98,24 @@ class MainGUI(QMainWindow):
         self.btn_final.clicked.connect(lambda  : self.final(1))
         self.btn_final2.clicked.connect(lambda : self.final(2))
 
-    def get_participans(self):
-        people = db.get_participant()
+    def select_game(self, game):
+        if game == "Ping Pong":
+            self.reset_board()
+            self.name_of_game.setText(game)
+            self.get_participans(db)
+        
+        if game == "Uno":
+            self.reset_board()
+            self.name_of_game.setText(game)
+            self.get_participans(uno_db)
+        
+        if game == "Pool":
+            self.reset_board()
+            self.name_of_game.setText(game)
+            self.get_participans(pool_db)
+
+    def get_participans(self, database):
+        people = database.get_participant()
         names = []
         for name in people:
             names.append(name[1])
@@ -399,7 +420,96 @@ class MainGUI(QMainWindow):
         self.ui.setupUi(self.modal)
         self.modal.show()
 
-   
+    def reset_board(self):
+
+        #Enable all the buttons
+        self.win_1.setEnabled(True)
+        self.win_2.setEnabled(True)
+        self.win_3.setEnabled(True)
+        self.win_4.setEnabled(True)
+        self.win_5.setEnabled(True)
+        self.win_6.setEnabled(True)
+        self.win_7.setEnabled(True)
+        self.win_8.setEnabled(True)
+        self.win_9.setEnabled(True)
+        self.win_10.setEnabled(True)
+        self.win_11.setEnabled(True)
+        self.win_12.setEnabled(True)
+        self.win_13.setEnabled(True)
+        self.win_14.setEnabled(True)
+        self.win_15.setEnabled(True)
+        self.win_16.setEnabled(True)
+
+        #Disabled all the unnesesary buttons
+        self.next_stageBTN_1.setEnabled(False)
+        self.next_stageBTN_2.setEnabled(False)
+        self.next_stageBTN_3.setEnabled(False)
+        self.next_stageBTN_4.setEnabled(False)
+        self.next_stageBTN_5.setEnabled(False)
+        self.next_stageBTN_6.setEnabled(False)
+        self.next_stageBTN_7.setEnabled(False)
+        self.next_stageBTN_8.setEnabled(False)
+
+        self.next_semifinalsBTN.setEnabled(False)
+        self.next_semifinalsBTN_2.setEnabled(False)
+        self.next_semifinalsBTN_3.setEnabled(False)
+        self.next_semifinalsBTN_4.setEnabled(False)
+
+        self.btn_final.setEnabled(False)
+        self.btn_final2.setEnabled(False)
+
+        #Reset the styles of the LineText
+        self.part_1.setStyleSheet("")
+        self.part_2.setStyleSheet("")
+        self.part_3.setStyleSheet("")
+        self.part_4.setStyleSheet("")
+        self.part_5.setStyleSheet("")
+        self.part_6.setStyleSheet("")
+        self.part_7.setStyleSheet("")
+        self.part_8.setStyleSheet("")
+        self.part_9.setStyleSheet("")
+        self.part_10.setStyleSheet("")
+        self.part_11.setStyleSheet("")
+        self.part_12.setStyleSheet("")
+        self.part_13.setStyleSheet("")
+        self.part_14.setStyleSheet("")
+        self.part_15.setStyleSheet("")
+        self.part_16.setStyleSheet("")
+
+        self.next_stage1.setStyleSheet("")
+        self.next_stage1_2.setStyleSheet("")
+        self.next_stage1_3.setStyleSheet("")
+        self.next_stage1_4.setStyleSheet("")
+        self.next_stage1_5.setStyleSheet("")
+        self.next_stage1_6.setStyleSheet("")
+        self.next_stage1_7.setStyleSheet("")
+        self.next_stage1_8.setStyleSheet("")
+
+        self.next_semiFinals.setStyleSheet("")
+        self.next_semiFinals_2.setStyleSheet("")
+        self.next_semiFinals_3.setStyleSheet("")
+        self.next_semiFinals_4.setStyleSheet("")
+
+        self.final_part.setStyleSheet("")
+        self.final_part2.setStyleSheet("")
+
+        #Reset the Line Text to blank
+        self.next_stage1.setText("")
+        self.next_stage1_2.setText("")
+        self.next_stage1_3.setText("")
+        self.next_stage1_4.setText("")
+        self.next_stage1_5.setText("")
+        self.next_stage1_6.setText("")
+        self.next_stage1_7.setText("")
+        self.next_stage1_8.setText("")
+
+        self.next_semiFinals.setText("")
+        self.next_semiFinals_2.setText("")
+        self.next_semiFinals_3.setText("")
+        self.next_semiFinals_4.setText("")
+
+        self.final_part.setText("")
+        self.final_part2.setText("")
 
 
 if __name__ == '__main__':

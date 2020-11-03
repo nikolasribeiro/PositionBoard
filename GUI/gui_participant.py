@@ -9,13 +9,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt, QTimer
-import Data.data_code as db
-
+import Data.ping_pong_db as db
+import Data.pool_db as pool_db
+import Data.uno_db as uno_db
 
 class Ui_Window_Participans(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(508, 579)
+        MainWindow.resize(536, 592)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
@@ -139,6 +140,18 @@ class Ui_Window_Participans(object):
         self.participant_8.setObjectName("participant_8")
         self.gridLayout.addWidget(self.participant_8, 19, 0, 1, 1)
         self.verticalLayout.addWidget(self.frame)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.rb_ping_pong = QtWidgets.QRadioButton(self.centralwidget)
+        self.rb_ping_pong.setObjectName("rb_ping_pong")
+        self.horizontalLayout_2.addWidget(self.rb_ping_pong)
+        self.rb_uno = QtWidgets.QRadioButton(self.centralwidget)
+        self.rb_uno.setObjectName("rb_uno")
+        self.horizontalLayout_2.addWidget(self.rb_uno)
+        self.rb_pool = QtWidgets.QRadioButton(self.centralwidget)
+        self.rb_pool.setObjectName("rb_pool")
+        self.horizontalLayout_2.addWidget(self.rb_pool)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
         self.btn_add = QtWidgets.QPushButton(self.centralwidget)
         self.btn_add.setObjectName("btn_add")
         self.verticalLayout.addWidget(self.btn_add)
@@ -150,10 +163,73 @@ class Ui_Window_Participans(object):
 
         """ ============ FUNCIONALIDAD DE LA VENTANA ============ """
         #Call the function to create the database
-        db.participant_data()
+        
 
+        self.btn_add.clicked.connect(self.generate_databases)
 
-        self.btn_add.clicked.connect(self.add_participant)
+    def generate_databases(self):
+
+        if self.rb_ping_pong.isChecked():
+            db.participant_data()
+            self.add_participant()
+
+        if self.rb_pool.isChecked():
+            pool_db.participant_data()
+            self.add_pool_participant()
+        
+        if self.rb_uno.isChecked():
+            uno_db.participant_data()
+            self.add_uno_participant()
+
+    def add_uno_participant(self):
+        uno_db.add_name(self.participant1.text())
+        uno_db.add_name(self.participant_2.text())
+        uno_db.add_name(self.participant_3.text())
+        uno_db.add_name(self.participant_4.text())
+        uno_db.add_name(self.participant_5.text())
+        uno_db.add_name(self.participant_6.text())
+        uno_db.add_name(self.participant_7.text())
+        uno_db.add_name(self.participant_8.text())
+        uno_db.add_name(self.participant_9.text())
+        uno_db.add_name(self.participant_10.text())
+        uno_db.add_name(self.participant_11.text())
+        uno_db.add_name(self.participant_22.text())
+        uno_db.add_name(self.participant_23.text())
+        uno_db.add_name(self.participant_24.text())
+        uno_db.add_name(self.participant_25.text())
+        uno_db.add_name(self.participant_26.text())
+
+        msg = QMessageBox()
+        msg.setWindowTitle("Players Registered to Uno Successfully")
+        msg.setText("Players Added to queue successfully")
+        msg.setIcon(QMessageBox.Information)
+        msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec_()
+
+    def add_pool_participant(self):
+        pool_db.add_name(self.participant1.text())
+        pool_db.add_name(self.participant_2.text())
+        pool_db.add_name(self.participant_3.text())
+        pool_db.add_name(self.participant_4.text())
+        pool_db.add_name(self.participant_5.text())
+        pool_db.add_name(self.participant_6.text())
+        pool_db.add_name(self.participant_7.text())
+        pool_db.add_name(self.participant_8.text())
+        pool_db.add_name(self.participant_9.text())
+        pool_db.add_name(self.participant_10.text())
+        pool_db.add_name(self.participant_11.text())
+        pool_db.add_name(self.participant_22.text())
+        pool_db.add_name(self.participant_23.text())
+        pool_db.add_name(self.participant_24.text())
+        pool_db.add_name(self.participant_25.text())
+        pool_db.add_name(self.participant_26.text())
+
+        msg = QMessageBox()
+        msg.setWindowTitle("Players Registered to Pool Successfully")
+        msg.setText("Players Added to queue successfully")
+        msg.setIcon(QMessageBox.Information)
+        msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec_()
 
     def add_participant(self):
         db.add_name(self.participant1.text())
@@ -174,7 +250,7 @@ class Ui_Window_Participans(object):
         db.add_name(self.participant_26.text())
 
         msg = QMessageBox()
-        msg.setWindowTitle("Players Registered Successfully")
+        msg.setWindowTitle("Players Registered to Ping Pong Successfully")
         msg.setText("Players Added to queue successfully")
         msg.setIcon(QMessageBox.Information)
         msg.setStandardButtons(QMessageBox.Ok)
@@ -200,6 +276,9 @@ class Ui_Window_Participans(object):
         self.label_26.setText(_translate("MainWindow", "Participant 15"))
         self.label_8.setText(_translate("MainWindow", "Participant 8"))
         self.label_27.setText(_translate("MainWindow", "Participant 16"))
+        self.rb_ping_pong.setText(_translate("MainWindow", "Ping Pong"))
+        self.rb_uno.setText(_translate("MainWindow", "Uno"))
+        self.rb_pool.setText(_translate("MainWindow", "Pool"))
         self.btn_add.setText(_translate("MainWindow", "Load Participans"))
 
 
