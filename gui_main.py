@@ -10,7 +10,10 @@ import threading
 import Data.ping_pong_db as db
 import Data.pool_db as pool_db
 import Data.uno_db as uno_db
+import json
 
+status16 = {}
+status8  = {}
 class MainGUI(QMainWindow):
     
     def __init__(self):
@@ -23,6 +26,10 @@ class MainGUI(QMainWindow):
 
         #Selecting the game to display
         self.game_selector.activated[str].connect(self.select_game)
+
+        #Buttons of save and load data to board
+        self.save_board.clicked.connect(self.save_status)
+        self.load_board.clicked.connect(self.load_status)
 
         #Disable all the buttons to avoid future problems
         self.win_1.setEnabled(False)
@@ -159,12 +166,19 @@ class MainGUI(QMainWindow):
         self.win_16.setEnabled(True)
 
     def next_stage(self, identifier):
+        global status16
 
         # ==== LEFT SIDE ====
         if identifier in [1,2,3,4,5,6,7,8]:
 
             if identifier == 1:
                 self.next_stage1.setText(self.part_1.text())
+
+                #saving this data in the status global variable
+                status16[self.part_1.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_2.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
+
                 self.part_2.setStyleSheet("background-color: #FE2E2E")
                 self.part_1.setStyleSheet("background-color: #28B463")
                 self.win_2.setEnabled(False)
@@ -172,6 +186,11 @@ class MainGUI(QMainWindow):
             
             elif identifier == 2:
                 self.next_stage1.setText(self.part_2.text())
+
+                #saving this data in the status global variable
+                status16[self.part_2.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_1.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
                 self.part_1.setStyleSheet("background-color: #FE2E2E")
                 self.part_2.setStyleSheet("background-color: #28B463")
                 self.win_1.setEnabled(False)
@@ -179,6 +198,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 3:
                 self.next_stage1_2.setText(self.part_3.text())
+
+                #saving this data in the status global variable
+                status16[self.part_3.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_4.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_4.setStyleSheet("background-color: #FE2E2E")
                 self.part_3.setStyleSheet("background-color: #28B463")
                 self.win_4.setEnabled(False)
@@ -186,6 +210,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 4:
                 self.next_stage1_2.setText(self.part_4.text())
+
+                #saving this data in the status global variable
+                status16[self.part_4.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_3.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_3.setStyleSheet("background-color: #FE2E2E")
                 self.part_4.setStyleSheet("background-color: #28B463")
                 self.win_3.setEnabled(False)
@@ -193,6 +222,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 5:
                 self.next_stage1_3.setText(self.part_5.text())
+
+                #saving this data in the status global variable
+                status16[self.part_5.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_6.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_6.setStyleSheet("background-color: #FE2E2E")
                 self.part_5.setStyleSheet("background-color: #28B463")
                 self.win_6.setEnabled(False)
@@ -200,6 +234,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 6:
                 self.next_stage1_3.setText(self.part_6.text())
+
+                #saving this data in the status global variable
+                status16[self.part_6.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_5.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_5.setStyleSheet("background-color: #FE2E2E")
                 self.part_6.setStyleSheet("background-color: #28B463")
                 self.win_5.setEnabled(False)
@@ -207,6 +246,11 @@ class MainGUI(QMainWindow):
             
             elif identifier == 7:
                 self.next_stage1_4.setText(self.part_7.text())
+
+                #saving this data in the status global variable
+                status16[self.part_7.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_8.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_8.setStyleSheet("background-color: #FE2E2E")
                 self.part_7.setStyleSheet("background-color: #28B463")
                 self.win_8.setEnabled(False)
@@ -214,6 +258,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 8:
                 self.next_stage1_4.setText(self.part_8.text())
+
+                #saving this data in the status global variable
+                status16[self.part_8.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_7.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_7.setStyleSheet("background-color: #FE2E2E")
                 self.part_8.setStyleSheet("background-color: #28B463")
                 self.win_7.setEnabled(False)
@@ -223,6 +272,11 @@ class MainGUI(QMainWindow):
         if identifier in [9,10,11,12,13,14,15,16]:
             if identifier == 9:
                 self.next_stage1_5.setText(self.part_9.text())
+
+                #saving this data in the status global variable
+                status16[self.part_9.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_10.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_10.setStyleSheet("background-color: #FE2E2E")
                 self.part_9.setStyleSheet("background-color: #28B463")
                 self.win_10.setEnabled(False)
@@ -230,6 +284,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 10:
                 self.next_stage1_5.setText(self.part_10.text())
+
+                #saving this data in the status global variable
+                status16[self.part_10.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_9.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_9.setStyleSheet("background-color: #FE2E2E")
                 self.part_10.setStyleSheet("background-color: #28B463")
                 self.win_9.setEnabled(False)
@@ -237,6 +296,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 11:
                 self.next_stage1_6.setText(self.part_11.text())
+
+                #saving this data in the status global variable
+                status16[self.part_11.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_12.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_12.setStyleSheet("background-color: #FE2E2E")
                 self.part_11.setStyleSheet("background-color: #28B463")
                 self.win_12.setEnabled(False)
@@ -244,6 +308,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 12:
                 self.next_stage1_6.setText(self.part_12.text())
+
+                #saving this data in the status global variable
+                status16[self.part_12.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_11.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_11.setStyleSheet("background-color: #FE2E2E")
                 self.part_12.setStyleSheet("background-color: #28B463")
                 self.win_11.setEnabled(False)
@@ -251,6 +320,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 13:
                 self.next_stage1_7.setText(self.part_13.text())
+
+                #saving this data in the status global variable
+                status16[self.part_13.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_14.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_14.setStyleSheet("background-color: #FE2E2E")
                 self.part_13.setStyleSheet("background-color: #28B463")
                 self.win_14.setEnabled(False)
@@ -258,6 +332,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 14:
                 self.next_stage1_7.setText(self.part_14.text())
+
+                #saving this data in the status global variable
+                status16[self.part_14.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_13.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_13.setStyleSheet("background-color: #FE2E2E")
                 self.part_14.setStyleSheet("background-color: #28B463")
                 self.win_13.setEnabled(False)
@@ -265,6 +344,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 15:
                 self.next_stage1_8.setText(self.part_15.text())
+
+                #saving this data in the status global variable
+                status16[self.part_15.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_16.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_16.setStyleSheet("background-color: #FE2E2E")
                 self.part_15.setStyleSheet("background-color: #28B463")
                 self.win_16.setEnabled(False)
@@ -272,6 +356,11 @@ class MainGUI(QMainWindow):
 
             elif identifier == 16:
                 self.next_stage1_8.setText(self.part_16.text())
+
+                #saving this data in the status global variable
+                status16[self.part_16.text()] = {'status': 'win', 'color':'#28B463'}
+                status16[self.part_15.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.part_15.setStyleSheet("background-color: #FE2E2E")
                 self.part_16.setStyleSheet("background-color: #28B463")
                 self.win_15.setEnabled(False)
@@ -288,11 +377,17 @@ class MainGUI(QMainWindow):
             self.next_stageBTN_8.setEnabled(True)
 
     def quarter_final(self, code):
+        global status8
 
         # ==== LEFT SIDE ====
         if code in [1,2,3,4]:
             if code == 1:
                 self.next_semiFinals.setText(self.next_stage1.text())
+                
+                #saving this data in the status global variable
+                status8[self.next_stage1.text()] = {'status': 'win', 'color':'#28B463'}
+                status8[self.next_stage1_2.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+                
                 self.next_stage1_2.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_2.setEnabled(False)
@@ -300,6 +395,11 @@ class MainGUI(QMainWindow):
 
             elif code == 2:
                 self.next_semiFinals.setText(self.next_stage1_2.text())
+
+                #saving this data in the status global variable
+                status8[self.next_stage1_2.text()] = {'status': 'win', 'color':'#28B463'}
+                status8[self.next_stage1.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
                 self.next_stage1.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_2.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_1.setEnabled(False)
@@ -307,6 +407,10 @@ class MainGUI(QMainWindow):
 
             elif code == 3:
                 self.next_semiFinals_2.setText(self.next_stage1_3.text())
+                #saving this data in the status global variable
+                status8[self.next_stage1_3.text()] = {'status': 'win', 'color':'#28B463'}
+                status8[self.next_stage1_4.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
                 self.next_stage1_4.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_3.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_4.setEnabled(False)
@@ -314,6 +418,10 @@ class MainGUI(QMainWindow):
 
             elif code == 4:
                 self.next_semiFinals_2.setText(self.next_stage1_4.text())
+                #saving this data in the status global variable
+                status8[self.next_stage1_4.text()] = {'status': 'win', 'color':'#28B463'}
+                status8[self.next_stage1_3.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
                 self.next_stage1_3.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_4.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_3.setEnabled(False)
@@ -323,6 +431,11 @@ class MainGUI(QMainWindow):
         if code in [5,6,7,8]:
             if code == 5:
                 self.next_semiFinals_3.setText(self.next_stage1_5.text())
+
+                #saving this data in the status global variable
+                status8[self.next_stage1_5.text()] = {'status': 'win', 'color':'#28B463'}
+                status8[self.next_stage1_6.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
                 self.next_stage1_6.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_5.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_6.setEnabled(False)
@@ -330,6 +443,11 @@ class MainGUI(QMainWindow):
 
             elif code == 6:
                 self.next_semiFinals_3.setText(self.next_stage1_6.text())
+
+                #saving this data in the status global variable
+                status8[self.next_stage1_6.text()] = {'status': 'win', 'color':'#28B463'}
+                status8[self.next_stage1_5.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
                 self.next_stage1_5.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_6.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_5.setEnabled(False)
@@ -337,6 +455,11 @@ class MainGUI(QMainWindow):
 
             elif code == 7:
                 self.next_semiFinals_4.setText(self.next_stage1_7.text())
+
+                #saving this data in the status global variable
+                status8[self.next_stage1_7.text()] = {'status': 'win', 'color':'#28B463'}
+                status8[self.next_stage1_6.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
                 self.next_stage1_6.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_7.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_6.setEnabled(False)
@@ -344,6 +467,11 @@ class MainGUI(QMainWindow):
             
             elif code == 8:
                 self.next_semiFinals_4.setText(self.next_stage1_8.text())
+
+                #saving this data in the status global variable
+                status8[self.next_stage1_8.text()] = {'status': 'win', 'color':'#28B463'}
+                status8[self.next_stage1_7.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
                 self.next_stage1_7.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_8.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_7.setEnabled(False)
@@ -511,7 +639,49 @@ class MainGUI(QMainWindow):
         self.final_part.setText("")
         self.final_part2.setText("")
 
+    def save_status(self):
+        global status16, status8
 
+        with open("config16.json", 'w') as save:
+            json.dump(status16, save)
+        
+        with open("config8.json", 'w') as save8:
+            json.dump(status8, save8)
+
+    def load_status(self):
+        self.get_participans(db)
+        
+        with open("config16.json") as load:
+            loading_data = json.load(load)
+            self.part_1.setStyleSheet(f"background-color: {loading_data[self.part_1.text()]['color']}")
+            self.part_2.setStyleSheet(f"background-color: {loading_data[self.part_2.text()]['color']}")
+            self.part_3.setStyleSheet(f"background-color: {loading_data[self.part_3.text()]['color']}")
+            self.part_4.setStyleSheet(f"background-color: {loading_data[self.part_4.text()]['color']}")
+            self.part_5.setStyleSheet(f"background-color: {loading_data[self.part_5.text()]['color']}")
+            self.part_6.setStyleSheet(f"background-color: {loading_data[self.part_6.text()]['color']}")
+            self.part_7.setStyleSheet(f"background-color: {loading_data[self.part_7.text()]['color']}")
+            self.part_8.setStyleSheet(f"background-color: {loading_data[self.part_8.text()]['color']}")
+            self.part_9.setStyleSheet(f"background-color: {loading_data[self.part_9.text()]['color']}")
+            self.part_10.setStyleSheet(f"background-color: {loading_data[self.part_10.text()]['color']}")
+            self.part_11.setStyleSheet(f"background-color: {loading_data[self.part_11.text()]['color']}")
+            self.part_12.setStyleSheet(f"background-color: {loading_data[self.part_12.text()]['color']}")
+            self.part_13.setStyleSheet(f"background-color: {loading_data[self.part_13.text()]['color']}")
+            self.part_14.setStyleSheet(f"background-color: {loading_data[self.part_14.text()]['color']}")
+            self.part_15.setStyleSheet(f"background-color: {loading_data[self.part_15.text()]['color']}")
+            self.part_16.setStyleSheet(f"background-color: {loading_data[self.part_16.text()]['color']}")
+        
+        with open("config8.json") as load8:
+            loading_8 = json.load(load8)
+            self.next_stage1.setStyleSheet(f"background-color: {loading_8[self.next_stage1.text()]['color']}")
+            self.next_stage1_2.setStyleSheet(f"background-color: {loading_8[self.next_stage1_2.text()]['color']}")
+            self.next_stage1_3.setStyleSheet(f"background-color: {loading_8[self.next_stage1_3.text()]['color']}")
+            self.next_stage1_4.setStyleSheet(f"background-color: {loading_8[self.next_stage1_4.text()]['color']}")
+            self.next_stage1_5.setStyleSheet(f"background-color: {loading_8[self.next_stage1_5.text()]['color']}")
+            self.next_stage1_6.setStyleSheet(f"background-color: {loading_8[self.next_stage1_6.text()]['color']}")
+            self.next_stage1_7.setStyleSheet(f"background-color: {loading_8[self.next_stage1_7.text()]['color']}")
+            self.next_stage1_8.setStyleSheet(f"background-color: {loading_8[self.next_stage1_8.text()]['color']}")
+            
+            
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     gui = MainGUI()
