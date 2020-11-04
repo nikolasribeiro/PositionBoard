@@ -14,6 +14,10 @@ import json
 
 status16 = {}
 status8  = {}
+status4  = {}
+final    = {}
+ROUTES   = ["config/ping_pong/", "config/pool/", "config/uno/"]
+
 class MainGUI(QMainWindow):
     
     def __init__(self):
@@ -173,12 +177,6 @@ class MainGUI(QMainWindow):
 
             if identifier == 1:
                 self.next_stage1.setText(self.part_1.text())
-
-                #saving this data in the status global variable
-                status16[self.part_1.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_2.text()] = {'status': 'lose', 'color':'#FE2E2E'}
-
-
                 self.part_2.setStyleSheet("background-color: #FE2E2E")
                 self.part_1.setStyleSheet("background-color: #28B463")
                 self.win_2.setEnabled(False)
@@ -187,10 +185,6 @@ class MainGUI(QMainWindow):
             elif identifier == 2:
                 self.next_stage1.setText(self.part_2.text())
 
-                #saving this data in the status global variable
-                status16[self.part_2.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_1.text()] = {'status': 'lose', 'color':'#FE2E2E'}
-
                 self.part_1.setStyleSheet("background-color: #FE2E2E")
                 self.part_2.setStyleSheet("background-color: #28B463")
                 self.win_1.setEnabled(False)
@@ -198,10 +192,6 @@ class MainGUI(QMainWindow):
 
             elif identifier == 3:
                 self.next_stage1_2.setText(self.part_3.text())
-
-                #saving this data in the status global variable
-                status16[self.part_3.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_4.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_4.setStyleSheet("background-color: #FE2E2E")
                 self.part_3.setStyleSheet("background-color: #28B463")
@@ -210,10 +200,6 @@ class MainGUI(QMainWindow):
 
             elif identifier == 4:
                 self.next_stage1_2.setText(self.part_4.text())
-
-                #saving this data in the status global variable
-                status16[self.part_4.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_3.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_3.setStyleSheet("background-color: #FE2E2E")
                 self.part_4.setStyleSheet("background-color: #28B463")
@@ -222,10 +208,6 @@ class MainGUI(QMainWindow):
 
             elif identifier == 5:
                 self.next_stage1_3.setText(self.part_5.text())
-
-                #saving this data in the status global variable
-                status16[self.part_5.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_6.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_6.setStyleSheet("background-color: #FE2E2E")
                 self.part_5.setStyleSheet("background-color: #28B463")
@@ -234,10 +216,6 @@ class MainGUI(QMainWindow):
 
             elif identifier == 6:
                 self.next_stage1_3.setText(self.part_6.text())
-
-                #saving this data in the status global variable
-                status16[self.part_6.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_5.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_5.setStyleSheet("background-color: #FE2E2E")
                 self.part_6.setStyleSheet("background-color: #28B463")
@@ -246,10 +224,6 @@ class MainGUI(QMainWindow):
             
             elif identifier == 7:
                 self.next_stage1_4.setText(self.part_7.text())
-
-                #saving this data in the status global variable
-                status16[self.part_7.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_8.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_8.setStyleSheet("background-color: #FE2E2E")
                 self.part_7.setStyleSheet("background-color: #28B463")
@@ -258,10 +232,6 @@ class MainGUI(QMainWindow):
 
             elif identifier == 8:
                 self.next_stage1_4.setText(self.part_8.text())
-
-                #saving this data in the status global variable
-                status16[self.part_8.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_7.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_7.setStyleSheet("background-color: #FE2E2E")
                 self.part_8.setStyleSheet("background-color: #28B463")
@@ -272,10 +242,6 @@ class MainGUI(QMainWindow):
         if identifier in [9,10,11,12,13,14,15,16]:
             if identifier == 9:
                 self.next_stage1_5.setText(self.part_9.text())
-
-                #saving this data in the status global variable
-                status16[self.part_9.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_10.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_10.setStyleSheet("background-color: #FE2E2E")
                 self.part_9.setStyleSheet("background-color: #28B463")
@@ -284,10 +250,6 @@ class MainGUI(QMainWindow):
 
             elif identifier == 10:
                 self.next_stage1_5.setText(self.part_10.text())
-
-                #saving this data in the status global variable
-                status16[self.part_10.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_9.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_9.setStyleSheet("background-color: #FE2E2E")
                 self.part_10.setStyleSheet("background-color: #28B463")
@@ -296,10 +258,6 @@ class MainGUI(QMainWindow):
 
             elif identifier == 11:
                 self.next_stage1_6.setText(self.part_11.text())
-
-                #saving this data in the status global variable
-                status16[self.part_11.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_12.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_12.setStyleSheet("background-color: #FE2E2E")
                 self.part_11.setStyleSheet("background-color: #28B463")
@@ -308,10 +266,6 @@ class MainGUI(QMainWindow):
 
             elif identifier == 12:
                 self.next_stage1_6.setText(self.part_12.text())
-
-                #saving this data in the status global variable
-                status16[self.part_12.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_11.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_11.setStyleSheet("background-color: #FE2E2E")
                 self.part_12.setStyleSheet("background-color: #28B463")
@@ -320,10 +274,6 @@ class MainGUI(QMainWindow):
 
             elif identifier == 13:
                 self.next_stage1_7.setText(self.part_13.text())
-
-                #saving this data in the status global variable
-                status16[self.part_13.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_14.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_14.setStyleSheet("background-color: #FE2E2E")
                 self.part_13.setStyleSheet("background-color: #28B463")
@@ -332,11 +282,7 @@ class MainGUI(QMainWindow):
 
             elif identifier == 14:
                 self.next_stage1_7.setText(self.part_14.text())
-
-                #saving this data in the status global variable
-                status16[self.part_14.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_13.text()] = {'status': 'lose', 'color':'#FE2E2E'}
-                
+               
                 self.part_13.setStyleSheet("background-color: #FE2E2E")
                 self.part_14.setStyleSheet("background-color: #28B463")
                 self.win_13.setEnabled(False)
@@ -345,9 +291,6 @@ class MainGUI(QMainWindow):
             elif identifier == 15:
                 self.next_stage1_8.setText(self.part_15.text())
 
-                #saving this data in the status global variable
-                status16[self.part_15.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_16.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_16.setStyleSheet("background-color: #FE2E2E")
                 self.part_15.setStyleSheet("background-color: #28B463")
@@ -357,9 +300,6 @@ class MainGUI(QMainWindow):
             elif identifier == 16:
                 self.next_stage1_8.setText(self.part_16.text())
 
-                #saving this data in the status global variable
-                status16[self.part_16.text()] = {'status': 'win', 'color':'#28B463'}
-                status16[self.part_15.text()] = {'status': 'lose', 'color':'#FE2E2E'}
                 
                 self.part_15.setStyleSheet("background-color: #FE2E2E")
                 self.part_16.setStyleSheet("background-color: #28B463")
@@ -383,11 +323,6 @@ class MainGUI(QMainWindow):
         if code in [1,2,3,4]:
             if code == 1:
                 self.next_semiFinals.setText(self.next_stage1.text())
-                
-                #saving this data in the status global variable
-                status8[self.next_stage1.text()] = {'status': 'win', 'color':'#28B463'}
-                status8[self.next_stage1_2.text()] = {'status': 'lose', 'color':'#FE2E2E'}
-                
                 self.next_stage1_2.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_2.setEnabled(False)
@@ -396,10 +331,6 @@ class MainGUI(QMainWindow):
             elif code == 2:
                 self.next_semiFinals.setText(self.next_stage1_2.text())
 
-                #saving this data in the status global variable
-                status8[self.next_stage1_2.text()] = {'status': 'win', 'color':'#28B463'}
-                status8[self.next_stage1.text()] = {'status': 'lose', 'color':'#FE2E2E'}
-
                 self.next_stage1.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_2.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_1.setEnabled(False)
@@ -407,9 +338,7 @@ class MainGUI(QMainWindow):
 
             elif code == 3:
                 self.next_semiFinals_2.setText(self.next_stage1_3.text())
-                #saving this data in the status global variable
-                status8[self.next_stage1_3.text()] = {'status': 'win', 'color':'#28B463'}
-                status8[self.next_stage1_4.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
 
                 self.next_stage1_4.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_3.setStyleSheet("background-color: #28B463")
@@ -418,9 +347,7 @@ class MainGUI(QMainWindow):
 
             elif code == 4:
                 self.next_semiFinals_2.setText(self.next_stage1_4.text())
-                #saving this data in the status global variable
-                status8[self.next_stage1_4.text()] = {'status': 'win', 'color':'#28B463'}
-                status8[self.next_stage1_3.text()] = {'status': 'lose', 'color':'#FE2E2E'}
+
 
                 self.next_stage1_3.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_4.setStyleSheet("background-color: #28B463")
@@ -431,11 +358,6 @@ class MainGUI(QMainWindow):
         if code in [5,6,7,8]:
             if code == 5:
                 self.next_semiFinals_3.setText(self.next_stage1_5.text())
-
-                #saving this data in the status global variable
-                status8[self.next_stage1_5.text()] = {'status': 'win', 'color':'#28B463'}
-                status8[self.next_stage1_6.text()] = {'status': 'lose', 'color':'#FE2E2E'}
-
                 self.next_stage1_6.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_5.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_6.setEnabled(False)
@@ -443,11 +365,6 @@ class MainGUI(QMainWindow):
 
             elif code == 6:
                 self.next_semiFinals_3.setText(self.next_stage1_6.text())
-
-                #saving this data in the status global variable
-                status8[self.next_stage1_6.text()] = {'status': 'win', 'color':'#28B463'}
-                status8[self.next_stage1_5.text()] = {'status': 'lose', 'color':'#FE2E2E'}
-
                 self.next_stage1_5.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_6.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_5.setEnabled(False)
@@ -455,23 +372,14 @@ class MainGUI(QMainWindow):
 
             elif code == 7:
                 self.next_semiFinals_4.setText(self.next_stage1_7.text())
-
-                #saving this data in the status global variable
-                status8[self.next_stage1_7.text()] = {'status': 'win', 'color':'#28B463'}
-                status8[self.next_stage1_6.text()] = {'status': 'lose', 'color':'#FE2E2E'}
-
-                self.next_stage1_6.setStyleSheet("background-color: #FE2E2E")
+                self.next_stage1_8.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_7.setStyleSheet("background-color: #28B463")
-                self.next_stageBTN_6.setEnabled(False)
+                self.next_stageBTN_8.setEnabled(False)
                 self.next_stageBTN_7.setEnabled(False)
+                
             
             elif code == 8:
                 self.next_semiFinals_4.setText(self.next_stage1_8.text())
-
-                #saving this data in the status global variable
-                status8[self.next_stage1_8.text()] = {'status': 'win', 'color':'#28B463'}
-                status8[self.next_stage1_7.text()] = {'status': 'lose', 'color':'#FE2E2E'}
-
                 self.next_stage1_7.setStyleSheet("background-color: #FE2E2E")
                 self.next_stage1_8.setStyleSheet("background-color: #28B463")
                 self.next_stageBTN_7.setEnabled(False)
@@ -640,48 +548,254 @@ class MainGUI(QMainWindow):
         self.final_part2.setText("")
 
     def save_status(self):
-        global status16, status8
+        global status16, status8, status4, final, ROUTES
 
-        with open("config16.json", 'w') as save:
-            json.dump(status16, save)
+        #saving this data in the status global variable
+
+        #16th Participants
+        status16[self.part_1.text()]    = {'name': self.part_1.text(),  'color': self.part_1.styleSheet(),  'btn_state': self.win_1.isEnabled()}
+        status16[self.part_2.text()]    = {'name': self.part_2.text(),  'color': self.part_2.styleSheet(),  'btn_state': self.win_2.isEnabled()}
+        status16[self.part_3.text()]    = {'name': self.part_3.text(),  'color': self.part_3.styleSheet(),  'btn_state': self.win_3.isEnabled()}
+        status16[self.part_4.text()]    = {'name': self.part_4.text(),  'color': self.part_4.styleSheet(),  'btn_state': self.win_4.isEnabled()}
+        status16[self.part_5.text()]    = {'name': self.part_5.text(),  'color': self.part_5.styleSheet(),  'btn_state': self.win_5.isEnabled()}
+        status16[self.part_6.text()]    = {'name': self.part_6.text(),  'color': self.part_6.styleSheet(),  'btn_state': self.win_6.isEnabled()}
+        status16[self.part_7.text()]    = {'name': self.part_7.text(),  'color': self.part_7.styleSheet(),  'btn_state': self.win_7.isEnabled()}
+        status16[self.part_8.text()]    = {'name': self.part_8.text(),  'color': self.part_8.styleSheet(),  'btn_state': self.win_8.isEnabled()}
+        status16[self.part_9.text()]    = {'name': self.part_9.text(),  'color': self.part_9.styleSheet(),  'btn_state': self.win_9.isEnabled()}
+        status16[self.part_10.text()]   = {'name': self.part_10.text(), 'color': self.part_10.styleSheet(), 'btn_state': self.win_10.isEnabled()}
+        status16[self.part_11.text()]   = {'name': self.part_11.text(), 'color': self.part_11.styleSheet(), 'btn_state': self.win_11.isEnabled()}
+        status16[self.part_12.text()]   = {'name': self.part_12.text(), 'color': self.part_12.styleSheet(), 'btn_state': self.win_12.isEnabled()}
+        status16[self.part_13.text()]   = {'name': self.part_13.text(), 'color': self.part_13.styleSheet(), 'btn_state': self.win_13.isEnabled()}
+        status16[self.part_14.text()]   = {'name': self.part_14.text(), 'color': self.part_14.styleSheet(), 'btn_state': self.win_14.isEnabled()}
+        status16[self.part_15.text()]   = {'name': self.part_15.text(), 'color': self.part_15.styleSheet(), 'btn_state': self.win_15.isEnabled()}
+        status16[self.part_16.text()]   = {'name': self.part_16.text(), 'color': self.part_16.styleSheet(), 'btn_state': self.win_16.isEnabled()}
         
-        with open("config8.json", 'w') as save8:
-            json.dump(status8, save8)
+        status8[self.next_stage1.text()]    = {'name': self.next_stage1.text(),     'color':self.next_stage1.styleSheet(),   'btn_state':self.next_stageBTN_1.isEnabled()}
+        status8[self.next_stage1_2.text()]  = {'name': self.next_stage1_2.text(),   'color':self.next_stage1_2.styleSheet(), 'btn_state':self.next_stageBTN_2.isEnabled()}
+        status8[self.next_stage1_3.text()]  = {'name': self.next_stage1_3.text(),   'color':self.next_stage1_3.styleSheet(), 'btn_state':self.next_stageBTN_3.isEnabled()}
+        status8[self.next_stage1_4.text()]  = {'name': self.next_stage1_4.text(),   'color':self.next_stage1_4.styleSheet(), 'btn_state':self.next_stageBTN_4.isEnabled()}
+        status8[self.next_stage1_5.text()]  = {'name': self.next_stage1_5.text(),   'color':self.next_stage1_5.styleSheet(), 'btn_state':self.next_stageBTN_5.isEnabled()}
+        status8[self.next_stage1_6.text()]  = {'name': self.next_stage1_6.text(),   'color':self.next_stage1_6.styleSheet(), 'btn_state':self.next_stageBTN_6.isEnabled()}
+        status8[self.next_stage1_7.text()]  = {'name': self.next_stage1_7.text(),   'color':self.next_stage1_7.styleSheet(), 'btn_state':self.next_stageBTN_7.isEnabled()}
+        status8[self.next_stage1_8.text()]  = {'name': self.next_stage1_8.text(),   'color':self.next_stage1_8.styleSheet(), 'btn_state':self.next_stageBTN_8.isEnabled()}
+
+        status4[self.next_semiFinals.text()]    = {'name': self.next_semiFinals.text(),   'color': self.next_semiFinals.styleSheet(),    'btn_state':self.next_semifinalsBTN.isEnabled()}
+        status4[self.next_semiFinals_2.text()]  = {'name': self.next_semiFinals_2.text(), 'color':self.next_semiFinals_2.styleSheet(),   'btn_state':self.next_semifinalsBTN_2.isEnabled()}
+        status4[self.next_semiFinals_3.text()]  = {'name': self.next_semiFinals_3.text(), 'color':self.next_semiFinals_3.styleSheet(),   'btn_state':self.next_semifinalsBTN_3.isEnabled()}
+        status4[self.next_semiFinals_4.text()]  = {'name': self.next_semiFinals_4.text(), 'color':self.next_semiFinals_4.styleSheet(),   'btn_state':self.next_semifinalsBTN_4.isEnabled()}
+
+        final[self.final_part.text()] = {'name': self.final_part.text(), 'color':self.final_part.styleSheet(),   'btn_state':self.btn_final.isEnabled()}
+        final[self.final_part2.text()] = {'name': self.final_part2.text(), 'color':self.final_part2.styleSheet(),   'btn_state':self.btn_final2.isEnabled()}
+
+        if self.name_of_game.text() == "Ping Pong":
+
+            with open(f"{ROUTES[0]}config16.json", 'w') as save:
+                json.dump(status16, save)
+            
+            with open(f"{ROUTES[0]}config8.json", 'w') as save8:
+                print(save8)
+                json.dump(status8, save8)
+            
+            with open(f"{ROUTES[0]}config4.json", "w") as save4:
+                json.dump(status4, save4)
+            
+            with open(f"{ROUTES[0]}config2.json", "w") as save2:
+                json.dump(final, save2)
+
+        elif self.name_of_game.text() == "Uno":
+            with open(f"{ROUTES[2]}config16.json", 'w') as save:
+                json.dump(status16, save)
+            
+            with open(f"{ROUTES[2]}config8.json", 'w') as save8:
+                print(save8)
+                json.dump(status8, save8)
+            
+            with open(f"{ROUTES[2]}config4.json", "w") as save4:
+                json.dump(status4, save4)
+            
+            with open(f"{ROUTES[2]}config2.json", "w") as save2:
+                json.dump(final, save2)
+        
+        elif self.name_of_game.text() == "Pool":
+            with open(f"{ROUTES[1]}config16.json", 'w') as save:
+                json.dump(status16, save)
+            
+            with open(f"{ROUTES[1]}config8.json", 'w') as save8:
+                print(save8)
+                json.dump(status8, save8)
+            
+            with open(f"{ROUTES[1]}config4.json", "w") as save4:
+                json.dump(status4, save4)
+            
+            with open(f"{ROUTES[1]}config2.json", "w") as save2:
+                json.dump(final, save2)
+
+        msg = QMessageBox()
+        msg.setWindowTitle("Data Saved")
+        msg.setText("Data Saved Successfully")
+        msg.setIcon(QMessageBox.Information)
+        msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec_()
 
     def load_status(self):
-        self.get_participans(db)
-        
-        with open("config16.json") as load:
+        global ROUTES
+
+        if self.name_of_game.text() == "Ping Pong":
+            self.__load_data(ROUTES[0])
+
+        elif self.name_of_game.text() == "Uno":
+            self.__load_data(ROUTES[2])
+
+        elif self.name_of_game.text() == "Pool":
+            self.__load_data(ROUTES[1])
+
+
+    
+    def __load_data(self, selector):
+        print("Esto es selector cuando llama a la funcion anonima: ", selector)
+
+        with open(f"{selector}config16.json") as load:
             loading_data = json.load(load)
-            self.part_1.setStyleSheet(f"background-color: {loading_data[self.part_1.text()]['color']}")
-            self.part_2.setStyleSheet(f"background-color: {loading_data[self.part_2.text()]['color']}")
-            self.part_3.setStyleSheet(f"background-color: {loading_data[self.part_3.text()]['color']}")
-            self.part_4.setStyleSheet(f"background-color: {loading_data[self.part_4.text()]['color']}")
-            self.part_5.setStyleSheet(f"background-color: {loading_data[self.part_5.text()]['color']}")
-            self.part_6.setStyleSheet(f"background-color: {loading_data[self.part_6.text()]['color']}")
-            self.part_7.setStyleSheet(f"background-color: {loading_data[self.part_7.text()]['color']}")
-            self.part_8.setStyleSheet(f"background-color: {loading_data[self.part_8.text()]['color']}")
-            self.part_9.setStyleSheet(f"background-color: {loading_data[self.part_9.text()]['color']}")
-            self.part_10.setStyleSheet(f"background-color: {loading_data[self.part_10.text()]['color']}")
-            self.part_11.setStyleSheet(f"background-color: {loading_data[self.part_11.text()]['color']}")
-            self.part_12.setStyleSheet(f"background-color: {loading_data[self.part_12.text()]['color']}")
-            self.part_13.setStyleSheet(f"background-color: {loading_data[self.part_13.text()]['color']}")
-            self.part_14.setStyleSheet(f"background-color: {loading_data[self.part_14.text()]['color']}")
-            self.part_15.setStyleSheet(f"background-color: {loading_data[self.part_15.text()]['color']}")
-            self.part_16.setStyleSheet(f"background-color: {loading_data[self.part_16.text()]['color']}")
+            
+            tmp16 = []
+
+            for key in loading_data.keys():
+                if key != '':
+                    tmp16.append(key)
+                else:
+                    print("La key esta vacia")
+            
+            self.part_1.setText(loading_data[tmp16[0]]['name'])
+            self.part_2.setText(loading_data[tmp16[1]]['name'])
+            self.part_3.setText(loading_data[tmp16[2]]['name'])
+            self.part_4.setText(loading_data[tmp16[3]]['name'])
+            self.part_5.setText(loading_data[tmp16[4]]['name'])
+            self.part_6.setText(loading_data[tmp16[5]]['name'])
+            self.part_7.setText(loading_data[tmp16[6]]['name'])
+            self.part_8.setText(loading_data[tmp16[7]]['name'])
+            self.part_9.setText(loading_data[tmp16[8]]['name'])
+            self.part_10.setText(loading_data[tmp16[9]]['name'])
+            self.part_11.setText(loading_data[tmp16[10]]['name'])
+            self.part_12.setText(loading_data[tmp16[11]]['name'])
+            self.part_13.setText(loading_data[tmp16[12]]['name'])
+            self.part_14.setText(loading_data[tmp16[13]]['name'])
+            self.part_15.setText(loading_data[tmp16[14]]['name'])
+            self.part_16.setText(loading_data[tmp16[15]]['name'])
+
+            self.part_1.setStyleSheet(loading_data[tmp16[0]]['color'])
+            self.part_2.setStyleSheet(loading_data[tmp16[1]]['color'])
+            self.part_3.setStyleSheet(loading_data[tmp16[2]]['color'])
+            self.part_4.setStyleSheet(loading_data[tmp16[3]]['color'])
+            self.part_5.setStyleSheet(loading_data[tmp16[4]]['color'])
+            self.part_6.setStyleSheet(loading_data[tmp16[5]]['color'])
+            self.part_7.setStyleSheet(loading_data[tmp16[6]]['color'])
+            self.part_8.setStyleSheet(loading_data[tmp16[7]]['color'])
+            self.part_9.setStyleSheet(loading_data[tmp16[8]]['color'])
+            self.part_10.setStyleSheet(loading_data[tmp16[9]]['color'])
+            self.part_11.setStyleSheet(loading_data[tmp16[10]]['color'])
+            self.part_12.setStyleSheet(loading_data[tmp16[11]]['color'])
+            self.part_13.setStyleSheet(loading_data[tmp16[12]]['color'])
+            self.part_14.setStyleSheet(loading_data[tmp16[13]]['color'])
+            self.part_15.setStyleSheet(loading_data[tmp16[14]]['color'])
+            self.part_16.setStyleSheet(loading_data[tmp16[15]]['color'])
+            
+
+            #Disabled buttons that already played
+            self.win_1.setEnabled(loading_data[tmp16[0]]['btn_state'])
+            self.win_2.setEnabled(loading_data[tmp16[1]]['btn_state'])
+            self.win_3.setEnabled(loading_data[tmp16[2]]['btn_state'])
+            self.win_4.setEnabled(loading_data[tmp16[3]]['btn_state'])
+            self.win_5.setEnabled(loading_data[tmp16[4]]['btn_state'])
+            self.win_6.setEnabled(loading_data[tmp16[5]]['btn_state'])
+            self.win_7.setEnabled(loading_data[tmp16[6]]['btn_state'])
+            self.win_8.setEnabled(loading_data[tmp16[7]]['btn_state'])
+            self.win_9.setEnabled(loading_data[tmp16[8]]['btn_state'])
+            self.win_10.setEnabled(loading_data[tmp16[9]]['btn_state'])
+            self.win_11.setEnabled(loading_data[tmp16[10]]['btn_state'])
+            self.win_12.setEnabled(loading_data[tmp16[11]]['btn_state'])
+            self.win_13.setEnabled(loading_data[tmp16[12]]['btn_state'])
+            self.win_14.setEnabled(loading_data[tmp16[13]]['btn_state'])
+            self.win_15.setEnabled(loading_data[tmp16[14]]['btn_state'])
+            self.win_16.setEnabled(loading_data[tmp16[15]]['btn_state'])
         
-        with open("config8.json") as load8:
+        with open(f"{selector}config8.json") as load8:
             loading_8 = json.load(load8)
-            self.next_stage1.setStyleSheet(f"background-color: {loading_8[self.next_stage1.text()]['color']}")
-            self.next_stage1_2.setStyleSheet(f"background-color: {loading_8[self.next_stage1_2.text()]['color']}")
-            self.next_stage1_3.setStyleSheet(f"background-color: {loading_8[self.next_stage1_3.text()]['color']}")
-            self.next_stage1_4.setStyleSheet(f"background-color: {loading_8[self.next_stage1_4.text()]['color']}")
-            self.next_stage1_5.setStyleSheet(f"background-color: {loading_8[self.next_stage1_5.text()]['color']}")
-            self.next_stage1_6.setStyleSheet(f"background-color: {loading_8[self.next_stage1_6.text()]['color']}")
-            self.next_stage1_7.setStyleSheet(f"background-color: {loading_8[self.next_stage1_7.text()]['color']}")
-            self.next_stage1_8.setStyleSheet(f"background-color: {loading_8[self.next_stage1_8.text()]['color']}")
+            tmp8 = []
+
+            for key in loading_8.keys():
+                if key != '':
+                    tmp8.append(key)
+                else:
+                    print("La key esta vacia")
             
+            self.next_stage1.setText(loading_8[tmp8[0]]['name'])
+            self.next_stage1_2.setText(loading_8[tmp8[1]]['name'])
+            self.next_stage1_3.setText(loading_8[tmp8[2]]['name'])
+            self.next_stage1_4.setText(loading_8[tmp8[3]]['name'])
+            self.next_stage1_5.setText(loading_8[tmp8[4]]['name'])
+            self.next_stage1_6.setText(loading_8[tmp8[5]]['name'])
+            self.next_stage1_7.setText(loading_8[tmp8[6]]['name'])
+            self.next_stage1_8.setText(loading_8[tmp8[7]]['name'])
+
+            self.next_stage1.setStyleSheet(loading_8[tmp8[0]]['color'])
+            self.next_stage1_2.setStyleSheet(loading_8[tmp8[1]]['color'])
+            self.next_stage1_3.setStyleSheet(loading_8[tmp8[2]]['color'])
+            self.next_stage1_4.setStyleSheet(loading_8[tmp8[3]]['color'])
+            self.next_stage1_5.setStyleSheet(loading_8[tmp8[4]]['color'])
+            self.next_stage1_6.setStyleSheet(loading_8[tmp8[5]]['color'])
+            self.next_stage1_7.setStyleSheet(loading_8[tmp8[6]]['color'])
+            self.next_stage1_8.setStyleSheet(loading_8[tmp8[7]]['color'])
+
+            self.next_stageBTN_1.setEnabled(loading_8[tmp8[0]]['btn_state'])
+            self.next_stageBTN_2.setEnabled(loading_8[tmp8[1]]['btn_state'])
+            self.next_stageBTN_3.setEnabled(loading_8[tmp8[2]]['btn_state'])
+            self.next_stageBTN_4.setEnabled(loading_8[tmp8[3]]['btn_state'])
+            self.next_stageBTN_5.setEnabled(loading_8[tmp8[4]]['btn_state'])
+            self.next_stageBTN_6.setEnabled(loading_8[tmp8[5]]['btn_state'])
+            self.next_stageBTN_7.setEnabled(loading_8[tmp8[6]]['btn_state'])
+            self.next_stageBTN_8.setEnabled(loading_8[tmp8[7]]['btn_state'])
+        
+        with open(f"{selector}config4.json") as load4:
+            loading_4 = json.load(load4)
+            tmp4 = []
+
+            for key in loading_4.keys():
+                if key != '':
+                    tmp4.append(key)
+                else:
+                    print("La key esta vacia")
             
+            self.next_semiFinals.setText(loading_4[tmp4[0]]['name'])
+            self.next_semiFinals_2.setText(loading_4[tmp4[1]]['name'])
+            self.next_semiFinals_3.setText(loading_4[tmp4[2]]['name'])
+            self.next_semiFinals_4.setText(loading_4[tmp4[3]]['name'])
+
+            self.next_semiFinals.setStyleSheet(loading_4[tmp4[0]]['color'])
+            self.next_semiFinals_2.setStyleSheet(loading_4[tmp4[1]]['color'])
+            self.next_semiFinals_3.setStyleSheet(loading_4[tmp4[2]]['color'])
+            self.next_semiFinals_4.setStyleSheet(loading_4[tmp4[3]]['color'])
+
+            self.next_semifinalsBTN.setEnabled(loading_4[tmp4[0]]['btn_state'])
+            self.next_semifinalsBTN_2.setEnabled(loading_4[tmp4[1]]['btn_state'])
+            self.next_semifinalsBTN_3.setEnabled(loading_4[tmp4[2]]['btn_state'])
+            self.next_semifinalsBTN_4.setEnabled(loading_4[tmp4[3]]['btn_state'])
+        
+        with open(f"{selector}config2.json") as load2:
+            loading_2 = json.load(load2)
+            tmp = []
+
+            for key in loading_2.keys():
+                if key != '':
+                    tmp.append(key)
+                else:
+                    print("La key esta vacia")
+            
+            self.final_part.setText(loading_2[tmp[0]]['name'])
+            self.final_part2.setText(loading_2[tmp[1]]['name'])
+            
+            self.btn_final.setEnabled(loading_2[tmp[0]]['btn_state'])
+            self.btn_final2.setEnabled(loading_2[tmp[1]]['btn_state'])
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     gui = MainGUI()
